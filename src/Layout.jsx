@@ -7,6 +7,8 @@ import './css/Layout.css';
 import Pokeapi from './components/Pokeapi';
 import Pokemon from './components/Pokemon';
 
+const VITE_POKE_API_URL = import.meta.env.VITE_POKE_API_URL;
+
 function Layout() {
 
   return (
@@ -28,12 +30,9 @@ function Layout() {
     <main></main>
 
       <h1>1. Ejercicio de promesas</h1>
-      <Outlet/>
+      <Outlet context={{ VITE_POKE_API_URL }} />
     </>
 
-  )
-
-
-}
+  );}
 
 export default Layout;

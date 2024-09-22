@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import '../css/Pokeapi.css';
-
+import { useOutletContext } from 'react-router-dom';
 import {BrowserRouter as Router, Route, Link, NavLink, Routes} from 'react-router-dom'
 
 
 const Pokeapi = () => {
+
+    const { VITE_POKE_API_URL } = useOutletContext(); // Acceder a la prop de la Env
 
     const [pokeapi, setPokeapi] = useState([]);
 
@@ -19,7 +21,7 @@ const Pokeapi = () => {
 
     // versión con promesas + then catch
     const getPokeAPI = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon`)
+        fetch(`${VITE_POKE_API_URL}`)
 
         .then((response) => response.json())
 
@@ -62,6 +64,7 @@ const Pokeapi = () => {
     // };
 
     useEffect(() => {
+        console.log('Fetching desde:', VITE_POKE_API_URL);
         getPokeAPI();
     }, []);
 

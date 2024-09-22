@@ -1,8 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../css/Pokeapi.css';
+import { useOutletContext } from 'react-router-dom';
+
 
 const Pokemon = () => {
+
+    const { VITE_POKE_API_URL } = useOutletContext(); // Acceder a la prop de la Env
 
     const {name} = useParams();
 
@@ -13,7 +17,7 @@ const Pokemon = () => {
 
     // versión con promesas + then catch
     const getPokemonData = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        fetch(`${VITE_POKE_API_URL}/${name}`)
 
         .then((response) => response.json())
 
