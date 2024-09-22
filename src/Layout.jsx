@@ -8,6 +8,8 @@ import Pokeapi from './components/Pokeapi';
 import Pokemon from './components/Pokemon';
 
 const VITE_POKE_API_URL = import.meta.env.VITE_POKE_API_URL;
+console.log(`Fetching desde: ${POKE_API_URL}`);
+
 
 function Layout() {
 
